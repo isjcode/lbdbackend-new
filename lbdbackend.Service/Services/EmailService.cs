@@ -23,6 +23,7 @@ namespace lbdbackend.Service.Services {
             smtp.Authenticate("testerlbd@gmail.com", "nqbvfgtlekppjaoa");
             smtp.Send(message);
             smtp.Disconnect(true);
+            //hello
         }
     }
 }
