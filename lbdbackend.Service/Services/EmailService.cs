@@ -12,7 +12,7 @@ namespace lbdbackend.Service.Services {
     public class EmailService : IEmailService {
         public void Register(RegisterDTO registerDTO, string link) {
             var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("lbd", "testerlbd@gmail.com"));
+            message.From.Add(new MailboxAddress("lbd", "lbdsendermail@gmail.com"));
             message.To.Add(new MailboxAddress(registerDTO.Username, registerDTO.Email));
             message.Subject = "Confirmation Email";
 
@@ -20,7 +20,7 @@ namespace lbdbackend.Service.Services {
             using var smtp = new SmtpClient();
             message.Body = new TextPart(TextFormat.Html) { Text = emailbody };
             smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("testerlbd@gmail.com", "nqbvfgtlekppjaoa");
+            smtp.Authenticate("lbdsendermail@gmail.com", "elsbpjleezfqbjcf");
             smtp.Send(message);
             smtp.Disconnect(true);
             //hello
